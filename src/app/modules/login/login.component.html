@@ -1,0 +1,25 @@
+<div class="body">
+  <div class="login">
+    <img src="../../../brand/img/logo.png" alt="" width="200px">
+    <h1 class="mt-4"><span>{{ title }}</span></h1>
+    <!-- <h2 class=""></h2> -->
+    <form [formGroup]="loginForm">
+      <mat-form-field class="ancho" style="margin-bottom: .5rem;" appearance="fill">
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email" autofocus>
+        <mat-error *ngIf="formEmail!.hasError('required')"> El campo es requerido <strong>requerida</strong>.
+        </mat-error>
+        <mat-error *ngIf="formEmail!.hasError('email')">El cambo debe tener formato <strong>email</strong>.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="ancho" appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="contrasena" type="password" (keyup.enter)="ingresar()">
+        <mat-error *ngIf="formContrasena!.hasError('required')"> El campo es requerido <strong>requerida</strong>.
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <br>
+    <button (click)="ingresar()" class="ancho" mat-raised-button mat-button color="primary">Ingresar</button>
+  </div>
+</div>

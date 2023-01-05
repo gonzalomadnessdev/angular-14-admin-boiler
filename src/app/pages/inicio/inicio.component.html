@@ -1,0 +1,73 @@
+<!-- _______________________________________________________ -->
+
+
+<div class="container">
+  <h1 class="mt-4"><strong>Bienvenido a {{ title }}</strong></h1>
+
+  <div class="row">
+    <div class="datos d-flex">
+
+      <app-dato-individual-card class="dato-individual-card dato-individual-card-primary mx-3 my-4"
+        [key]="'Usuarios activos'" [value]="'1498'" [icon]="'person'"></app-dato-individual-card>
+      <app-dato-individual-card class="dato-individual-card dato-individual-card-primary mx-3 my-4"
+        [key]="'Administradores activos'" [value]="'4'" [icon]="'supervisor_account'"></app-dato-individual-card>
+      <app-dato-individual-card class="dato-individual-card dato-individual-card-primary mx-3 my-4"
+        [key]="'Soportes activos'" [value]="'12'" [icon]="'support_agent'"></app-dato-individual-card>
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-xl-8">
+      <h3>Bar Chart</h3>
+
+      <canvas id="barChartCanvas" #barChartCanvas></canvas>
+
+      <div class="button-row float-end">
+        <button mat-raised-button color="primary" (click)="saveImg(barChart)">
+          Descargar gráfico
+          <mat-icon fontIcon="download"></mat-icon>
+        </button>
+      </div>
+
+    </div>
+    <div class="col-xl-4">
+
+      <h3>Doughnut Chart</h3>
+
+      <canvas id="doughnutChartCanvas" #doughnutChartCanvas></canvas>
+
+      <div class="button-row float-end">
+        <button mat-raised-button color="primary" (click)="saveImg(doughnutChart)">
+          Descargar gráfico
+          <mat-icon fontIcon="download"></mat-icon>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row mb-4">
+
+    <div class="col-12">
+
+      <h3>Line Chart (zoom)</h3>
+
+      <canvas id="lineChartCanvas" #lineChartCanvas></canvas>
+
+      <div class="button-row float-end">
+        <button mat-raised-button color="primary" (click)="resetZoom(lineChart)">
+          Restaurar
+        </button>
+        <button mat-raised-button color="primary" (click)="saveImg(lineChart)">
+          Descargar gráfico
+          <mat-icon fontIcon="download"></mat-icon>
+        </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,16 @@
+
+<button mat-icon-button (click)="obtenerPagina('primera')" [disabled]="actual == 1">
+  <mat-icon>first_page</mat-icon>
+</button>
+<button mat-icon-button (click)="obtenerPagina('anterior')" [disabled]="actual == 1">
+  <mat-icon>navigate_before</mat-icon>
+</button>
+
+<small> Página {{ actual }} de {{ ultima }}</small>
+
+<button mat-icon-button (click)="obtenerPagina('siguiente')" [disabled]="actual == ultima">
+  <mat-icon>navigate_next</mat-icon>
+</button>
+<button mat-icon-button (click)="obtenerPagina('ultima')" [disabled]="actual == ultima">
+  <mat-icon>last_page</mat-icon>
+</button>

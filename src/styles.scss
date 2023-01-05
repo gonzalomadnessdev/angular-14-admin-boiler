@@ -1,0 +1,212 @@
+html,
+body {
+  height: 100%;
+}
+
+mat-sidenav-container {
+  height: calc(100vh - 4rem);
+}
+
+.main-wrapper {
+  display: flex;
+  min-height: calc(100vh - 4rem);
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+
+body {
+  margin: 0;
+}
+
+// for npm material-icons package (to load local files)
+$material-icons-font-path: '~material-icons/iconfont/';
+@import '~material-icons/iconfont/material-icons.scss';
+
+//SnackBar
+.green-snackbar {
+  background: var(--primary);
+  color: white;
+  margin-bottom: 4rem !important;
+}
+
+.green-snackbar button {
+  background-color: var(--primary-dark);
+  color: white;
+  border: none;
+  margin-bottom: 4rem !important;
+}
+
+.red-snackbar {
+  background: var(--alert);
+  color: white;
+  margin-bottom: 4rem !important;
+}
+
+.red-snackbar button {
+  background-color: var(--alert-dark);
+  color: white !important;
+  border: none;
+  margin-bottom: 4rem !important;
+}
+
+//Radio-buttons
+
+.mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+  opacity: 0 !important;
+  /*click effect color change*/
+  background-color: var(--primary) !important;
+}
+
+.mat-radio-button.mat-accent .mat-radio-inner-circle {
+  background-color: var(--primary);
+  /*inner circle color change*/
+}
+
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+  border-color: var(--primary);
+  /*outer ring color change*/
+}
+
+//Leaflet
+
+.leaflet-custom-popup {
+
+  .leaflet-popup-content-wrapper {
+    border-radius: 0;
+  }
+
+  .leaflet-popup-content {
+    margin: 0;
+
+    h2 {
+      background-color: var(--primary);
+      color: white;
+      padding: 1rem;
+      margin: 0;
+      margin-bottom: 1rem;
+    }
+
+    div {
+      margin: .5rem;
+    }
+
+  }
+
+  a.leaflet-popup-close-button {
+    color: white !important;
+  }
+}
+
+
+//Timepicker
+
+.custom-timepicker {
+  .active {
+    background-color: var(--primary) !important;
+  }
+
+  .clock-face__clock-hand,
+  .clock-face__clock-hand::after {
+    background-color: var(--primary) !important;
+  }
+
+  .clock-face__clock-hand::before {
+    border-color: var(--primary) !important;
+  }
+
+  header {
+    background-color: var(--primary) !important;
+  }
+
+}
+
+//Ocultar flechas de input type number
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+//Angular material
+
+//Cards
+mat-card.mat-card {
+  border-radius: 1rem;
+
+  box-shadow: 0rem 0.5rem 2rem rgba(149, 157, 165, 0.2) !important;
+}
+
+//Botones
+button.mat-button {
+  border-radius: 1rem;
+}
+
+button.mat-raised-button {
+  border-radius: 1rem;
+}
+
+//Componentes custom
+
+.dato-individual-card{
+
+  width: 100%;
+  color: white;
+
+  text-align: center;
+
+  box-shadow: .3rem .3rem .5rem rgba(149, 157, 165, 0.2) !important;
+  border-radius: 1rem;
+
+  &-primary{
+    .header{
+      background-color: var(--primary);
+    }
+    .value{
+      color: var(--primary);
+      background-color: white;
+    }
+  }
+  .header{
+    border-radius: 1rem  1rem 0 0;
+    padding: 1rem 2rem 1rem;
+    font-size: 1rem;
+  }
+  .value{
+    border-radius: 0 0 1rem  1rem;
+    padding: 1.6rem 2rem 1.6rem;
+    font-size: 2rem;
+    transition: 0.3s;
+  }
+  .icon{
+    padding: 0;
+    margin: .5rem auto 0rem;
+    //vertical-align: bottom;
+  }
+  .title{
+    margin-top: 1rem;
+  }
+  mat-icon{
+    transform: scale(2);
+    transition: 0.3s;
+  }
+
+}
+
+.dato-individual-card:hover{
+  mat-icon{
+    transform: scale(2.2);
+  }
+  .value{
+    font-size: 2.2rem;
+  }
+}
+

@@ -1,0 +1,37 @@
+<!-- <div  class="text-center mb-4" >
+  <h2 mat-dialog-title> {{data.titulo}}</h2>
+</div>
+
+<div class="row" *ngIf="data.subtitulo">
+
+  <div class="col-md-12 mx-auto">
+
+      <p>{{data.subtitulo}}</p>
+
+  </div>
+
+</div>
+
+<div class="row mt-3">
+
+  <div class="col-md-10 mx-auto" [ngClass]="{ 'text-center' : !data.opcionFalse }">
+
+      <button  class="btn btn-outline-secondary" mat-dialog-close="0" *ngIf="data.opcionFalse">
+          <i class="fas fa-arrow-left"></i> {{data.opcionFalse}}
+      </button>
+
+      <button class="btn btn-primary float-right" mat-dialog-close="1"  *ngIf="data.opcionTrue" [ngClass]="{ 'float-right' : data.opcionFalse }">
+          {{data.opcionTrue}} <i class="fas fa-check"></i>
+      </button>
+
+  </div>
+
+</div> -->
+
+
+<h2 mat-dialog-title>{{data.titulo}}</h2>
+<div *ngIf="data.subtitulo" mat-dialog-content>{{data.contenido}}</div>
+<div mat-dialog-actions class="d-flex justify-content-between">
+  <button *ngIf="data.opcionFalse" mat-button mat-dialog-close="0">{{data.opcionFalse}}</button>
+  <button *ngIf="data.opcionTrue"  mat-raised-button mat-dialog-close="1" [color]="data.botonUnoColor">{{data.opcionTrue}}</button>
+</div>

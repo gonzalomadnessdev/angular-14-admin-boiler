@@ -1,0 +1,115 @@
+
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.main-footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--secondary-dark);
+  color: var(--secondary-light);
+  padding: 1rem 1.2rem;
+}
+
+::ng-deep.mat-menu-panel.menu-usuario {
+  min-width: 12rem;
+}
+
+.menu-usuario-datos {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: solid 1px #d5d5d5;
+}
+
+//SIDE-NAV
+
+mat-expansion-panel{
+  border-radius: 0;
+}
+
+mat-sidenav , mat-expansion-panel-header  {
+  width: 18rem;
+  background-color: var(--primary-dark);
+  color: white;
+
+  mat-list-item {
+    color: white;
+  }
+}
+
+::ng-deep .mat-expansion-panel-header{
+  font-size: 1rem !important;
+}
+
+::ng-deep .mat-expansion-indicator::after{
+  color: rgba(255, 255, 255, 0.54) !important;
+}
+
+.disable_ripple:hover{
+  background: var(--primary-dark) !important;
+}
+.mat-expanded .mat-expansion-panel-header{
+  background: var(--primary-dark) !important;
+}
+
+.mat-nav-list .is-active {
+  background-color: var(--primary-darker)
+}
+
+::ng-deep .mat-expansion-panel-header {
+  padding: 0 16px !important;
+}
+
+::ng-deep .mat-expansion-panel-header:hover {
+  background-color: var(--primary-dark);
+  color: white;
+}
+
+::ng-deep .mat-expansion-panel .mat-nav-list {
+  background: var(--primary-dark) !important;
+}
+
+::ng-deep .mat-nav-list {
+  background: var(--primary-dark) !important;
+}
+
+::ng-deep .mat-nav-list .mat-icon {
+  margin-right: 0.625rem;
+  padding: 0.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  box-sizing: content-box;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0 !important
+}
+
+::ng-deep .mat-expansion-panel-header {
+  height: 3.5rem !important;
+}
+::ng-deep .mat-expansion-panel-header .mat-content  {
+  height: 100% !important;
+  align-items: center;
+}
+
+// ::ng-deep .mat-expansion-panel .mat-list-item{
+//   transform: translateY(-1rem);
+// }
+::ng-deep .mat-expansion-panel .mat-list-item .mat-list-item-content span.titulo{
+  transform: translateX(1rem);
+  font-size: .93rem;
+}
+::ng-deep .mat-expansion-panel .mat-list-item .mat-list-item-content .mat-icon{
+  transform: translateX(1rem);
+}
+
+::ng-deep .mat-expansion-panel .mat-list-item .mat-list-item-content{
+  padding-left: 15px !important;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+::ng-deep .mat-expansion-panel-content .mat-nav-list{
+  padding-top: 0 !important;
+}

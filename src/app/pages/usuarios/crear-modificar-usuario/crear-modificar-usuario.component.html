@@ -1,0 +1,81 @@
+<div class="container" (click)="test()">
+  <mat-card class="mt-4">
+    <mat-card-title class="mb-3">{{ pageEnModoModificar ? 'Editar información del usuario': 'Alta de usuario' }}</mat-card-title>
+    <mat-card-subtitle class="mb-5">
+      {{ pageEnModoModificar ? '': 'Complete el formulario para cargar un nuevo usuario.' }}
+    </mat-card-subtitle>
+    <mat-card-content>
+
+      <form [formGroup]="form">
+
+        <div class="row">
+          <div class="col-12">
+            <mat-form-field appearance="fill">
+              <mat-label>Email:</mat-label>
+              <input matInput formControlName="email">
+              <mat-error *ngIf="formEmail!.hasError('required')"> El campo es requerido <strong>requerida</strong>.
+              </mat-error>
+              <mat-error *ngIf="formEmail!.hasError('email')">El cambo debe tener formato <strong>email</strong>.
+              </mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <mat-form-field appearance="fill">
+              <mat-label>Nombre:</mat-label>
+              <input matInput formControlName="nombre">
+            </mat-form-field>
+          </div>
+          <div class="col-6">
+            <mat-form-field appearance="fill">
+              <mat-label>Apellido:</mat-label>
+              <input matInput formControlName="apellido">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <mat-form-field appearance="fill">
+              <mat-label>Rol:</mat-label>
+              <mat-select formControlName="rol">
+                <mat-option *ngFor="let rol of listadoRoles" [value]="rol.rol">
+                  {{rol.descripcion}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="formRol!.hasError('required')"> El campo es <strong>requerido</strong>.</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row" [class.d-none]="pageEnModoModificar">
+          <div class="col-12">
+            <mat-form-field appearance="fill">
+              <mat-label>Contraseña:</mat-label>
+              <input matInput formControlName="contrasena" [type]="verContrasena ? 'text' : 'password' ">
+              <mat-icon matSuffix (click)="verContrasena = !verContrasena">{{verContrasena ? 'visibility' :
+                'visibility_off'
+                }}</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+
+      <div class="mt-5 row">
+
+        <div class="col">
+          <button mat-button mat-button color="secondary" routerLink="/usuarios">
+            Volver
+          </button>
+        </div>
+
+        <div class="col d-flex justify-content-end">
+          <button (click)="enviarUsuario()" [disabled]="!camposValidos || deshabilitarBotones" mat-raised-button mat-button color="primary" style="margin-left: 1rem;">
+            {{ (pageEnModoModificar) ? 'Modificar usuario' : 'Crear usuario'}}
+          </button>
+        </div>
+
+      </div>
+
+    </mat-card-content>
+  </mat-card>
+</div>

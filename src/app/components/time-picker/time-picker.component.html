@@ -1,0 +1,24 @@
+<mat-form-field appearance="fill" (click)="open()">
+  <mat-label>
+    <ng-content></ng-content>
+  </mat-label>
+
+  <input matInput #input [ngxTimepicker]="picker" [format]="24" [value]="timeInput" [readonly]="true" [disabled]="disabled" [min]="min || '00:00' " [max]="max || '23:59'">
+  <mat-icon matSuffix>schedule</mat-icon>
+</mat-form-field>
+
+<ngx-material-timepicker #picker timepickerClass="custom-timepicker" [cancelBtnTmpl]="cancelar" [confirmBtnTmpl]="aceptar" [enableKeyboardInput]="true"
+[editableHintTmpl]="hint" (opened)="preventOpen()"
+(closed)="onClosedEvent()">
+</ngx-material-timepicker >
+
+<ng-template #cancelar>
+  <button mat-button>Cancelar</button>
+</ng-template>
+<ng-template #aceptar>
+  <button mat-raised-button color="primary" style="margin-left: .7rem;">Aceptar</button>
+</ng-template>
+
+<ng-template #hint>
+  <small class="timepicker-dial__hint" style="color: white;">* utilice las flechas (⇅) para asignar la hora</small>
+</ng-template>

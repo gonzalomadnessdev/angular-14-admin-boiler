@@ -1,0 +1,108 @@
+<mat-toolbar color="primary">
+
+  <button mat-icon-button (click)="toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>{{ title }}</span>
+  <span class="toolbar-spacer"></span>
+
+  <!-- <button mat-button routerLink="/dashboard">Dashboard</button>
+  <button mat-button routerLink="/dashboard/usuarios">Usuarios</button>
+  <button mat-button routerLink="/dashboard/reportes">Reportes</button> -->
+
+  <!-- <span *ngIf="usuario && usuario.nombre">  {{ usuario.nombre }} </span> -->
+
+
+  <button mat-icon-button class="mx-3" [matMenuTriggerFor]="menu">
+    <mat-icon>person</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" class="menu-usuario">
+    <ng-container *ngIf="usuario && usuario.email">
+      <div class="menu-usuario-datos">
+        <div><b>{{ usuario.email }}</b></div>
+        <div>
+          {{
+          (usuario.nombre) ? usuario.nombre : ''
+          + ' '
+          + (usuario.apellido) ? usuario.apellido : ''
+          }}
+        </div>
+      </div>
+      <button mat-menu-item routerLink="cambiar-password">
+        <mat-icon>key</mat-icon>
+        <span>Cambiar contraseña</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        <span>Salir</span>
+      </button>
+    </ng-container>
+  </mat-menu>
+
+  <!-- <button mat-icon-button (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button> -->
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" [(opened)]="opened" (opened)="doWhenOpen()" (closed)="doWhenClose()">
+
+
+    <mat-nav-list>
+      <ng-container *ngFor="let seccion of secciones; let idx = index">
+        <ng-container *ngTemplateOutlet="(seccion.submenu ?  menuHijo : menuPadre); context : {seccion : seccion} ">
+        </ng-container>
+      </ng-container>
+    </mat-nav-list>
+
+
+  </mat-sidenav>
+
+
+  <ng-template #menuPadre let-seccion="seccion">
+    <mat-list-item [routerLink]="seccion.ruta" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
+      true}">
+      <mat-icon mat-list-icon>{{ seccion.icono }}</mat-icon>
+      <span>{{ seccion.titulo }}</span>
+    </mat-list-item>
+  </ng-template>
+
+  <ng-template #menuHijo let-seccion="seccion">
+
+    <mat-expansion-panel [class.mat-elevation-z0]="true" [expanded]="seccion.activo">
+      <mat-expansion-panel-header class="disable_ripple">
+        <mat-icon mat-list-icon>{{ seccion.icono }}</mat-icon>
+        <span class="titulo">{{ seccion.titulo }}</span>
+      </mat-expansion-panel-header>
+      <mat-nav-list>
+        <mat-list-item [routerLink]="item.ruta" *ngFor="let item of seccion.submenu" routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{exact:
+              true}">
+          <mat-icon>{{item.icono}}</mat-icon>
+          <span class="titulo">{{item.titulo}}</span>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-expansion-panel>
+
+    <!-- <mat-list-item>
+      <mat-icon mat-list-icon>home</mat-icon>
+      asd
+    </mat-list-item> -->
+  </ng-template>
+
+
+
+  <mat-sidenav-content>
+    <div class="main-wrapper">
+      <div class="main-content">
+        <router-outlet></router-outlet>
+      </div>
+      <footer class="main-footer">
+        <div>Powered by QUO</div>
+        <div>v0.0</div>
+      </footer>
+    </div>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

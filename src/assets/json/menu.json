@@ -1,0 +1,14 @@
+{
+  "menu" : [
+    {
+      "titulo": "Inicio",
+      "ruta": "inicio",
+      "icono": "home"
+    },
+    {
+      "titulo": "Usuarios",
+      "ruta": "usuarios",
+      "icono": "manage_accounts"
+    }
+  ]
+}
